@@ -2,9 +2,9 @@ export class NavbarItem {
   constructor(root) {
     this.root = root;
     this.links = [
-      { name: "Inicio", href: "/" },
-      { name: "Servicios", href: "/about" },
-      { name: "Nosotros", href: "/contact" },
+      { name: "Inicio", href: "../../index.html" },
+      { name: "Servicios", href: "../../about.html" },
+      { name: "Nosotros", href: "../../contact.html" },
     ];
     this.navButton = document.createElement("a");
     this.navLogo = document.createElement("h1");
