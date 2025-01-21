@@ -1,0 +1,461 @@
+@import url("./src/style/navbar.css");
+@import url("https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Poppins:wght@300;400&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+  width: 100vw;
+  overflow-x: hidden;
+  font-family: "Poppins", serif;
+}
+
+h1,
+h2,
+h3,
+.title,
+.subtitle {
+  font-family: "Berkshire Swash", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.container {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.poppins-light {
+  font-family: "Poppins", serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.poppins-regular {
+  font-family: "Poppins", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+input {
+  width: 100%;
+  height: 100%;
+  padding: 0px 20px;
+  border-radius: 100px;
+  border: none;
+  background-color: transparent;
+  color: white;
+}
+
+input::placeholder {
+  font-weight: bold;
+  color: white;
+}
+
+input:focus {
+  outline: none;
+}
+
+select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border-radius: 100px;
+}
+
+button {
+  width: 100%;
+  color: white;
+  padding: 0.9rem 1.3rem;
+  border: 0.2rem solid white;
+  font-size: 1.2rem;
+  text-decoration: none;
+  letter-spacing: 5px;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+.calendario {
+  width: 90%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: repeat(6, minmax(0, 60px));
+  gap: 2px;
+  margin-bottom: 1rem;
+}
+
+.horario {
+  position: fixed;
+  inset: 0;
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  padding: 0 1rem;
+}
+
+.diasCalendario {
+  color: lightgray;
+  background-color: white;
+  cursor: pointer;
+  height: 100%;
+  padding: 0.3rem;
+}
+
+.form_group {
+  position: relative;
+  padding: 16px 0;
+  border-bottom: 1px solid white;
+
+  margin-bottom: 1rem;
+}
+
+.form_group label {
+  position: absolute;
+  color: white;
+  background-color: lightgrey;
+  pointer-events: none;
+  font-size: 1.1rem;
+  left: 0;
+  top: 0;
+  transition: 0.3s ease all;
+}
+
+.form_group input:not(:placeholder-shown) ~ label,
+.form_group select:not(:placeholder-shown) ~ label,
+.form_group input:focus ~ label,
+.form_group select:focus ~ label {
+  top: -15%;
+  left: 5%;
+  font-size: 0.8rem;
+}
+
+.diasCalendario.inActive {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.form {
+  display: none;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.form.active {
+  display: block;
+}
+
+.inactive {
+  display: none;
+}
+
+.popUp {
+  position: fixed;
+  inset: 0;
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popUp-content {
+  width: 100%;
+  background-color: white;
+  padding: 1rem 2rem;
+  box-shadow: 0 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+.popUp-content p {
+  margin-bottom: 1rem;
+}
+
+.popUp-content strong {
+  font-size: 2rem;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.popUp-content span {
+  display: block;
+}
+
+.popUp-btns {
+  display: flex;
+  justify-content: space-between;
+}
+
+.popUp-btns button {
+  width: min-content;
+  background-color: white;
+  color: white;
+  padding: 0.5rem 2rem;
+}
+
+.popUp-btns :nth-child(1) {
+  background-color: red;
+}
+
+.popUp-btns :nth-child(2) {
+  background-color: green;
+}
+
+.info {
+  width: 90%;
+  margin: 0 auto;
+  margin-bottom: 1rem;
+  box-shadow: 0 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+.info_hader {
+  background-color: rgba(255, 166, 0, 0.616);
+  color: white;
+  padding: 0.8rem 1rem;
+  text-transform: uppercase;
+}
+
+.info_body {
+  padding: 1rem;
+  background-color: rgba(255, 166, 0, 0.426);
+  color: white;
+  font-size: 0.8rem;
+  line-height: 1.4;
+  letter-spacing: 1px;
+}
+
+.banner_info {
+  position: relative;
+  width: 100%;
+}
+
+.banner-img img {
+  height: 100dvh;
+  object-fit: cover;
+  filter: contrast(70%);
+}
+
+.banner-img :nth-child(1) {
+  /* width: 100%; */
+  display: none;
+}
+
+.banner-img :nth-child(2) {
+  display: none;
+}
+
+.banner-img :nth-child(3) {
+  display: block;
+  width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+  .banner-img :nth-child(1) {
+    width: 50%;
+  }
+
+  .banner-img :nth-child(2) {
+    width: 50%;
+    display: none;
+  }
+
+  .banner-img :nth-child(3) {
+    display: block;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  /* .banner-img img {
+    width: 33.33%;
+  } */
+
+  .banner-img :nth-child(1) {
+    display: none;
+  }
+
+  .banner-img :nth-child(2) {
+    display: none;
+  }
+
+  .banner-img :nth-child(3) {
+    width: 100%;
+    display: block;
+  }
+}
+
+.banner-content {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.banner-content h4 {
+  color: white;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.banner-content p {
+  color: white;
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.cta-reserva {
+  color: white;
+  padding: 0.9rem 1.3rem;
+  border: 0.2rem solid white;
+  font-size: 1.2rem;
+  text-decoration: none;
+  letter-spacing: 5px;
+  cursor: pointer;
+}
+
+.pannel-calendario {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  margin-left: 1rem;
+  font-size: 1.3rem;
+}
+
+.dia-inactive {
+  display: none;
+  pointer-events: none;
+}
+
+.dia-active {
+  display: block;
+  pointer-events: all;
+}
+
+.servicios {
+  max-width: 1200px;
+  margin: 8rem auto;
+}
+
+.servicios-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+
+.servicios-header h2 {
+  font-size: 2rem;
+  font-weight: 400;
+}
+
+.servicios-body {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+.servicio {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  gap: 1rem;
+  align-items: center;
+}
+
+.servicio-content {
+  max-width: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.5rem;
+}
+
+.servicio-content h4 {
+  font-size: 1.3rem;
+}
+
+.servicio-content p {
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: lightgrey;
+}
+
+.servicio img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+}
+
+@media screen and (min-width: 768px) {
+  .servicios {
+    max-width: 1200px;
+    margin: 8rem auto;
+  }
+  
+  .servicios-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 3rem;
+  }
+  
+  .servicios-header h2 {
+    font-size: 2rem;
+    font-weight: 400;
+  }
+  
+  .servicios-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem;
+  }
+  
+  .servicio {
+    width: 33,33%;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    gap: 1rem;
+    align-items: center;
+  }
+  
+  .servicio-content {
+    max-width: 65%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.5rem;
+  }
+  
+  .servicio-content h4 {
+    font-size: 1.3rem;
+  }
+  
+  .servicio-content p {
+    font-size: 0.9rem;
+    font-weight: 300;
+    color: lightgrey;
+  }
+  
+  .servicio img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+  }
+  
+  
+}

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="../../../main.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="./agendar.css">
+</head>
+<body>
+  <header class="container_navbar"></header>
+  <div class="container">
+    <div id="root">
+  
+      <h2 style="margin-bottom: 2rem;">
+        Reserva tu hora
+      </h2>
+      <div class="info">
+        <div class="info_hader">
+          <h5>Atencion <i class="fa-solid fa-exclamation"></i></h5>
+        </div>
+        <div class="info_body">
+          <p>
+            Para reservar una hora de atencion, es necesario abonar el 50% de total. Para cancelar una hora, se debe hacer con 4 horas de anticipacion.
+          </p>
+        </div>
+      </div>
+  
+      <div class="pannel-calendario">
+        <p>Mes: <span>${mes}</span> </p>
+      </div>
+  
+      <div class="calendario"></div>
+  
+      <form class="form">
+        <div class="form_group">
+          <input type="text" id="name" placeholder=" ">
+          <label for="name">Ingrese nombre:</label>
+        </div>
+        <div class="form_group">
+          <input type="text" id="apellido" placeholder=" ">
+          <label for="apellido">Ingrese apellido:</label>
+        </div>
+  
+        <div class="form_group">
+          <input type="text" id="rut" placeholder=" ">
+          <label for="rut">Ingrese su RUT (sin puntos ni guion):</label>
+        </div>
+  
+        <div class="form_group">
+          <input type="text" id="edad" placeholder=" ">
+          <label for="edad">Ingrese la edad:</label>
+        </div>
+  
+        <div class="form_group">
+          <input type="text" id="fecha" name="calendario" placeholder=" ">
+          <label for="fecha">Ingrese el dia y la hora:</label>
+        </div>
+  
+        <div class="form_group">
+          <input type="email" id="email" name="email" placeholder=" ">
+          <label for="fecha">Ingrese tu correco de contacto:</label>
+        </div>
+  
+        <select name="corte" id="corte">
+          <option value="1">Atencion Basica</option>
+          <option value="2">Atencion Premiun</option>
+          <option value="3">Atencion V.I.P</option>
+        </select>
+  
+  
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </div>
+</body>
+<script type="module" src="./agendar.js"></script>
+</html>
