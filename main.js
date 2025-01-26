@@ -5,13 +5,13 @@ import { Carrusel } from "./src/probando_cositas/carrusel.js";
 
 class Main {
   constructor() {
-    this.root = document.querySelector('#root');
+    this.containerNavbar = document.querySelector(".container_navbar");
+    this.root = document.querySelector("#root");
     this.precios = new Precios();
-    this.barbero = new Barbero('Juan', 30, 5, 'Corte de pelo');
-    this.navbar = new NavbarItem(document.querySelector('.container_navbar')).render();
-    this.carrusel = new Carrusel(document.querySelector('#carrusel'));
+    this.barbero = new Barbero("Juan", 30, 5, "Corte de pelo");
+    this.navbar = new NavbarItem(this.containerNavbar).render();
+    this.carrusel = new Carrusel(document.querySelector("#carrusel"));
   }
-
 }
 
 new Main();

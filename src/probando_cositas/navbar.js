@@ -2,11 +2,11 @@ export class NavbarItem {
   constructor(root) {
     this.root = root;
     this.links = [
-      { name: "Inicio", href: "../../../index.html" },
-      { name: "Servicios", href: "#servicios" },
-      { name: "Nosotros", href: "#nosotros" },
-      { name: "Contacto", href: "#contacto" },
-      { name: "Testimonios", href: "#testimonios" },
+      { name: "Inicio", href: "top" },
+      { name: "Servicios", href: "servicios" },
+      { name: "Nosotros", href: "nosotros" },
+      { name: "Contacto", href: "contacto" },
+      { name: "Testimonios", href: "testimonios" },
     ];
     this.navButton = document.createElement("a");
     this.navLogo = document.createElement("h1");
@@ -22,16 +22,17 @@ export class NavbarItem {
     this.navButton.addEventListener("click", (e) => {
       e.preventDefault();
       const list = this.navbar.querySelector(".navbar__list");
-      console.log(list.classList.contains("active"));
 
       if (list.classList.contains("active")) {
         list.classList.remove("active");
         list.style.height = 0 + "px";
+        this.navButton.innerHTML = '<i class="fa-solid fa-bars fa-xl"></i>';
         return;
       }
 
       list.classList.add("active");
       list.style.height = list.scrollHeight + "px";
+      this.navButton.innerHTML = '<i class="fa-solid fa-x fa-xl"></i>';
     });
 
     return this.navButton;
@@ -45,44 +46,80 @@ export class NavbarItem {
     this.navbar.appendChild(this.createButton());
     this.navbar.appendChild(this.createList());
     this.navbar.appendChild(btnReserva);
-    this.transformPosition();
+    this.listenerEvent();
     return this.root.appendChild(this.navbar);
   }
 
-  transformPosition() {
-    const heightNavbar = document.body.children;
-    const navbar = heightNavbar[0];
+  listenerEvent() {
+    document.addEventListener("DOMContentLoaded", () =>
+      this.navbarIteraction()
+    );
+  }
 
-    window.addEventListener("scroll", () => {
-      if (navbar.getBoundingClientRect().bottom * -1 < window.innerHeight / 4) {
-        navbar.classList.remove("navbar--fixed");
-      } else {
-        navbar.classList.add("navbar--fixed");
-      }
-    });
+  navbarIteraction() {
+    const sections = document.querySelectorAll("main section");
+    const navbar = document.querySelector(".container_navbar");
+    const banner = document.querySelector(".banner-info");
+
+    console.log(sections);
+
+    const options = {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.1,
+    };
+
+    const positionNavbar = (entries) =>
+      entries.forEach((entry) =>
+        entry.isIntersecting
+          ? navbar.classList.remove("navbar--fixed")
+          : navbar.classList.add("navbar--fixed")
+      );
+    const navbarObserver = new IntersectionObserver(positionNavbar, options);
+    navbarObserver.observe(navbar);
+
+    const showNavbarColor = (entries) =>
+      entries.forEach((entry) =>
+        entry.isIntersecting
+          ? navbar.classList.remove("navbar--shadow")
+          : navbar.classList.add("navbar--shadow")
+      );
+    const showNavbar = new IntersectionObserver(showNavbarColor, options);
+    showNavbar.observe(banner);
+
+    const showNavbarItem = (entries) => {
+      entries.forEach((entry) => {
+        const id = entry.target.getAttribute("id");
+        const links = document.querySelectorAll(".navbar__link");
+
+        if (entry.isIntersecting) {
+          links.forEach((link) => {
+            if (link.href.includes(id)) {
+              link.classList.add("activate");
+            } else {
+              link.classList.remove("activate");
+            }
+          });
+        }
+      });
+    };
+
+    options.rootMargin = "0px 0px -50% 0px";
+
+    const sectionObserver = new IntersectionObserver(showNavbarItem, options);
+    sections.forEach((section) => sectionObserver.observe(section));
   }
 
   createList() {
     const list = document.createElement("ul");
     list.classList.add("navbar__list");
-    const href = window.location.href.split("/").pop();
 
     this.links.forEach((link) => {
-      list.innerHTML += `<li class="navbar__item"><a class="navbar__link ${
-        href === link.href ? "activate" : ""
-      }" href="${link.href}">${link.name}</a></li>`;
+      list.innerHTML += `<li class="navbar__item"><a class="navbar__link" href="#${link.href.trim()}" >${
+        link.name
+      }</a></li>`;
     });
 
     return list;
-  }
-
-  setLinks(textContent, href) {
-    this.navbar.innerHTML = "";
-    this.links.push({ name: textContent, href });
-    this.render(this.root);
-  }
-
-  getLinks() {
-    return this.links;
   }
 }
