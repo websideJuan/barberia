@@ -154,15 +154,20 @@ export class NavbarItem {
           password: data.get('password')
         }
 
+        console.log(user);
+        
+
         const isLogin = await this.auth.login(user);
         
         console.log(isLogin);
         
         if (!isLogin) {
           alert('Usuario o contraseña incorrecta');
-        } else {
-          window.location.href = '/src/vista/admin/';
-        }
+          return;
+        } 
+
+        window.location.href = '/src/vista/admin/';
+        
 
 
         return;

@@ -9,7 +9,7 @@ export class Auth {
   async isAuthenticated() {
     const response = await DB.get('auth');
 
-    
+    if (response === null) return false;
     return await response;
   }
 

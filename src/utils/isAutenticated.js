@@ -8,7 +8,7 @@ class IsAuthenticated {
   async isAuth() {
     const response = await this.auth.isAuthenticated();
     
-    if (response === null) {
+    if (!response) {
       window.location.href = '/';
       return;
     } 

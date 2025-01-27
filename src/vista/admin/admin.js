@@ -8,11 +8,24 @@ class Admin {
         this.admin.innerHTML = 'Admin';
         this.auth = new Auth();
         this.render();
-        this.isAutenticated = isAutenticated.isAuth();
+        this.isAutenticated = isAutenticated;
     }
 
     render() {
-      
+      const btnlogout = document.querySelector('.nav-user-logout');
+
+      setInterval(() => {
+
+        const redirecDOM = async () => {
+          await this.isAutenticated.isAuth();
+        }
+
+        redirecDOM();
+      }, 100);
+  
+      btnlogout.addEventListener('click', async () => {
+        this.auth.logout();
+      });
     }
 }
 
