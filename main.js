@@ -18,7 +18,7 @@ class Main {
 
   async init() {
     this.auth.register({
-      userName: 'admin',
+      username: 'admin',
       password: 'admin',
       email: '',
       role: 'admin',
