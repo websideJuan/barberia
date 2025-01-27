@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin index</title>
+  <link rel="stylesheet" href="./admin.css">
+
+  <!--Icons of fontawesome cdn-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+</head>
+<body>
+  <main class="main-admin">
+    <header class="header">
+      <div class="header-user">
+        <h4>Welcome Juan</h4>
+        <p class="header-user-info">
+          <span>User admin </span>
+        </p>
+      </div>
+    
+      <div class="header-user-image">
+        <img src="../../assets/usuarios/christopher-campbell-rDEOVtE7vOs-unsplash.jpg" width="30px" height="30px" alt="User image">
+      </div>
+    </header>
+
+    <nav class="nav">
+
+      <div class="nav-logo">
+        <a href="#">
+          <i class="fa-solid fa-chart-pie"></i>
+        </a>
+      </div>
+      <ul class="nav-menu">
+        <li class="nav-item">
+          <span class="nav-icon">
+            <i class="fas fa-home"></i>
+          </span>
+          <span class="nav-link">
+            Dashboard
+          </span>
+        </li>
+      </ul>
+
+      <div class="nav-user-logout">
+        <button id="logout">Logout</button>
+      </div>
+    </nav>
+
+    <section class="content">
+      <div class="container">
+        <h1 class="content-title">Dashboard</h1>
+        <div class="content-dinamic">
+            <div class="agenda-eventos card-shadow">
+              <h2>Cortes agendados:</h2>
+              <p>
+                <span>Fecha:</span> 12/12/2020
+              </p>
+            </div>
+
+            <div class="task-list card-shadow">
+              <h2>Lista de tareas:</h2>
+              
+              <ul class="task-list-items">
+                <li class="task-list-item">
+                  <p>Revisar el sistema de facturación</p>
+                </li>
+                <li>
+                  <p>Reanudar la busqueda de barberos</p>
+                </li>
+              </ul>
+            </div>
+
+            <div class="table-client card-shadow">
+              <h2>Clientes</h2>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Nombre</th>
+                    <th>Correo</th>
+                    <th>Acciones</th>
+                  </tr>
+                </thead>
+                <tbody id="clients">
+                  <tr>
+                    <td>Nombre</td>
+                    <td>Correo</td>
+                    <td>
+                      <button>Editar</button>
+                      <button>Eliminar</button>
+                    </td>
+                  </tr>
+                </tbody>
+            </div>
+        </div>
+        <!-- <div>
+          <h2>Usuarios</h2>
+          <button id="createUser">Crear usuario</button>
+          <table>
+            <thead>
+              <tr>
+                <th>Nombre</th>
+                <th>Correo</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody id="users">
+              <tr>
+                <td>Nombre</td>
+                <td>Correo</td>
+                <td>
+                  <button>Editar</button>
+                  <button>Eliminar</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div> -->
+      </div>
+    </section>
+
+  </main>
+
+</body>
+
+<script type="module" src="./admin.js"></script>
+</html>

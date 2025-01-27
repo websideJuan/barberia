@@ -2,7 +2,6 @@ import { GestorPeluqueria } from "../../funcionalidad/gestorPeluqueria.js";
 import { Precios } from "../../modelo/precios.js";
 import { Barbero } from "../../modelo/barbero.js";
 import { GestorEvento } from "../../funcionalidad/gestorEvento.js";
-import { NavbarItem } from "../../probando_cositas/navbar.js";
 import BD from "../../utils/local.js";
 
 class agendar {
@@ -10,12 +9,10 @@ class agendar {
     this.root = document.querySelector('#root');
     this.precios = new Precios();
     this.barbero = new Barbero('Juan', 30, 5, 'Corte de pelo');
-    this.navbar = new NavbarItem(document.querySelector('.container_navbar'));
     this.init();
   }
 
   init() {
-    this.navbar.render()
     const dias = new Date(2025, 0, 0).getDate();
     const div = document.querySelector('.calendario');
     const form = document.querySelector('.form');
@@ -129,7 +126,7 @@ class agendar {
             BD.save('barbero', JSON.stringify(this.barbero));
 
          
-            window.location.href = '../pagar/pagar.html';
+            // window.location.href = '../pagar/pagar.html';
           }
         }
       );

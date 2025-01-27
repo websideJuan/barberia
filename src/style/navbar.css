@@ -73,6 +73,29 @@
   pointer-events: none;
 }
 
+.navbar__button {
+  margin-left: auto;
+  font-size: 1.2rem;
+}
+
+.navbar__login {
+  font-size: 1.1rem;
+  color: white;
+  position: relative;
+  text-decoration: none;
+}
+
+.navbar .navbar__login::after {
+  content: "";
+  width: 50%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: orange;
+  transition: width 0.5s;
+  position: absolute;
+}
+
 @media screen and (min-width: 868px) {
   .navbar {
     padding: 1.5rem 3rem;

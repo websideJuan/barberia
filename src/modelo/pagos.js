@@ -14,15 +14,12 @@ export class Pagos {
     try {
       const precios = await BD.get('precios');
       const preciosActual = precios.find((precio) => precio.ID === this.corteId);
-      console.log(preciosActual);
-      
       
       if (!preciosActual) {
         return false;
       }
   
       this.precioInical += (preciosActual.corte * 0.5);
-      console.log(this.precioInical);
       
     } catch (error) {
       console.log(error);

@@ -1,9 +1,7 @@
-import { Calendario } from "../modelo/calendario.js";
 import Bd from "../utils/local.js";
 
 export class GestorEvento {
   constructor() {
-    this.eventos = [];
     this.dias = {};
     this.crearCalendario();
   }
@@ -32,7 +30,6 @@ export class GestorEvento {
 
   async agregar({ clienteID, barberoID, diaAgendado, horario }) {
     try {
-      const evento = new Calendario(clienteID, barberoID, diaAgendado, horario);
       const dias = await Bd.get('horas');
 
       if (dias === null) {
@@ -43,10 +40,7 @@ export class GestorEvento {
       const horaIndex = diaFounded.findIndex(hora => hora.hora === horario.split(' ')[0]);
       diaFounded[horaIndex].disponible = false;
   
-            
-      this.eventos.push(evento);
       Bd.save('horas', JSON.stringify(dias));
-      Bd.save('eventos', JSON.stringify(this.eventos));
     } catch (error) {
       console.log(error);
     }
