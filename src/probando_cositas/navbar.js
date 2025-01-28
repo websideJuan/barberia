@@ -160,7 +160,7 @@ export class NavbarItem {
           return;
         } 
 
-        window.location.href = 'barberia/src/vista/admin/';
+        window.location.href = '/src/vista/admin/';
         
 
 
