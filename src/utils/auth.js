@@ -35,6 +35,8 @@ export class Auth {
     try {
       const response = await DB.get('users');
       const eventos = await DB.get('eventos');
+      const clientes = await DB.get('clientes');
+      
       const userFounded = response.find(user => user.userName === user.userName)
    
       if (!userFounded) {
@@ -49,13 +51,21 @@ export class Auth {
 
       this.authenticated = true;
       this.stateAutenticated(this.authenticated);
-    
-      eventos.forEach(evento => this.newUserActivated = {
-        ...evento,
-        userNamr: userFounded.userName,
+      
+      const unityCandE = clientes.map(cliente => ({
+        ...cliente,
+          eventos: eventos.filter(evento => evento.clienteID === cliente.id)
+        }))
+
+      this.newUserActivated = {
+        userNamr: userFounded.username,
         email: userFounded.email,
-        role: userFounded.role
-      })
+        role: userFounded.role,
+        clientes: unityCandE
+      }
+      
+      console.log(this.newUserActivated);
+
       
       this.userActive(this.newUserActivated);
       return true;
@@ -65,6 +75,10 @@ export class Auth {
     }
   }
 
+  async getUserActive() {
+    return await DB.get('userActive');
+  }
+
   userActive(user) {
     return  DB.save('userActive', JSON.stringify(user));
   }
@@ -72,6 +86,7 @@ export class Auth {
   logout() {
     this.authenticated = false;
     this.stateAutenticated(this.authenticated);
+    DB.remove('userActive');
   }
 
   stateAutenticated(authenticated) {

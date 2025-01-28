@@ -21,15 +21,30 @@
     
       <div class="header-user-image">
         <img src="../../assets/usuarios/christopher-campbell-rDEOVtE7vOs-unsplash.jpg" width="30px" height="30px" alt="User image">
+
+        <div class="header-user-image-dropdown dropdown">
+          <ul class="dropdown-list">
+            <li class="dropdown-list-item">
+              <a href="#" class="dropdown-list-link">Perfil</a>
+            </li>
+            <li class="dropdown-list-item">
+              <a href="#" class="dropdown-list-link">Configuración</a>
+            </li>
+            <li class="dropdown-list-item">
+              <a href="#" class="dropdown-list-link">Cerrar sesión</a>
+            </li>
+          </ul>
+        </div>
       </div>
     </header>
 
     <nav class="nav">
 
       <div class="nav-logo">
-        <a href="#">
-          <i class="fa-solid fa-chart-pie"></i>
-        </a>
+        <span>
+          <i class="fa-solid fa-landmark"></i>
+          <!-- <img src="../../assets/logo.png" alt="Logo" width="30px" height="30px"> -->
+        </span>
       </div>
       <ul class="nav-menu">
         <li class="nav-item">
@@ -38,6 +53,15 @@
           </span>
           <span class="nav-link">
             Dashboard
+          </span>
+        </li>
+
+        <li class="nav-item">
+          <span class="nav-icon">
+            <i class="fas fa-calendar-alt"></i>
+          </span>
+          <span class="nav-link">
+            Agendar
           </span>
         </li>
       </ul>
@@ -53,8 +77,8 @@
         <div class="content-dinamic">
             <div class="agenda-eventos card-shadow">
               <h2>Cortes agendados:</h2>
-              <p>
-                <span>Fecha:</span> 12/12/2020
+              <p class="agenda-eventos-cantidad-container">
+                Agendados: <span class="agenda-eventos__cantidad">0</span>
               </p>
             </div>
 
@@ -93,29 +117,7 @@
                 </tbody>
             </div>
         </div>
-        <!-- <div>
-          <h2>Usuarios</h2>
-          <button id="createUser">Crear usuario</button>
-          <table>
-            <thead>
-              <tr>
-                <th>Nombre</th>
-                <th>Correo</th>
-                <th>Acciones</th>
-              </tr>
-            </thead>
-            <tbody id="users">
-              <tr>
-                <td>Nombre</td>
-                <td>Correo</td>
-                <td>
-                  <button>Editar</button>
-                  <button>Eliminar</button>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div> -->
+
       </div>
     </section>
 

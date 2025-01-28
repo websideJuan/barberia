@@ -1,3 +1,4 @@
+
 export class Cliente {
   constructor(nombre, apellido, edad, diaAgendado, email,corteId) {
     this.ID = 0;

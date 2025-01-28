@@ -44,22 +44,9 @@ p {
   flex-direction: column;
   justify-content: space-between;
   background-color: #333;
-  padding: 3rem .0rem;
-  padding-top: 2rem;
-  width: 0px;
-  overflow: hidden;
+  padding: 3rem 1rem;
+  padding-top: 1rem;
   transition: width 0.5s, padding 0.5s, overflow 0.5s;
-}
-
-.main-admin {
-  grid-template-columns: 0fr 3fr 3fr;
-}
-
-.main-admin:hover .nav {
-  width: 100%;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  overflow: visible;
 }
 
 .nav-logo {
@@ -70,18 +57,13 @@ p {
   padding: 1rem 0;
 }
 
-.nav-logo a {
-  color: white;
-
-}
-
 .nav-menu {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   list-style: none;
-  margin-top: 3rem;
+  margin-top: 6rem;
   margin-bottom: auto;
 }
 
@@ -111,6 +93,56 @@ p {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
+.header-user-image {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.header-user-image-dropdown {
+  position: absolute;
+  top: 100%;
+  right: -10px;
+}
+
+.dropdown-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 150px;
+  height: 0;
+  overflow: hidden;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  transition: height .1s, opacity .1s;
+}
+
+.dropdown.activate .dropdown-list {
+  opacity: 1;
+  overflow: visible;
+  height: 150px;
+}
+
+.dropdown-list-item {
+  cursor: pointer;
+  height: 100%;
+  background-color: #fff;
+
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  padding-left: 2rem;
+}
+
+.dropdown-list-item:hover {
+  background-color: #f9f9f9;
+}
+
+.dropdown-list-link {
+  color: black;
+  text-decoration: none;
+}
+
 .header-user-image img {
   width: 50px;
   height: 50px;
@@ -127,8 +159,13 @@ p {
   "area3"
   "area4"
   "area5";
+}
 
-  overflow-y: scroll;
+.agenda-eventos-cantidad-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1rem 0;
 }
 
 .container {
@@ -147,8 +184,8 @@ p {
 .card-shadow {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
-  height: 300px;
-  margin-bottom: 1rem;
+  /* height: 300px; */
+  margin-bottom: 2.5rem;
   border-radius: 10px;
-  padding: 1rem;
+  padding: 2rem;
 }

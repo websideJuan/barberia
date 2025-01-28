@@ -95,9 +95,8 @@ export class NavbarItem {
 
   loginUI () {
     const login = document.createElement('div');
-
-    
     login.classList.add('login');
+
     login.innerHTML = `
       <div class="login__content">
         <div class="login__header">
@@ -154,19 +153,14 @@ export class NavbarItem {
           password: data.get('password')
         }
 
-        console.log(user);
-        
-
         const isLogin = await this.auth.login(user);
-        
-        console.log(isLogin);
         
         if (!isLogin) {
           alert('Usuario o contraseña incorrecta');
           return;
         } 
 
-        window.location.href = '/src/vista/admin/';
+        window.location.href = 'barberia/src/vista/admin/';
         
 
 
@@ -185,8 +179,6 @@ export class NavbarItem {
     const sections = document.querySelectorAll("main section");
     const navbar = document.querySelector(".container_navbar");
     const banner = document.querySelector(".banner-info");
-
-    console.log(sections);
 
     const options = {
       root: null,

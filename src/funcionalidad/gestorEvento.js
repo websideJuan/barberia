@@ -6,6 +6,10 @@ export class GestorEvento {
     this.crearCalendario();
   }
 
+  saveData () {
+    Bd.save('eventos', JSON.stringify([]));
+  }
+
   crearCalendario () {
     const mesActual = ( new Date().getMonth()+1);
     const anioActual = new Date().getFullYear();
@@ -28,7 +32,7 @@ export class GestorEvento {
     }
   }
 
-  async agregar({ clienteID, barberoID, diaAgendado, horario }) {
+  async agregar({ clienteID, barberoID, dia, horario }) {
     try {
       const dias = await Bd.get('horas');
 
@@ -36,7 +40,11 @@ export class GestorEvento {
         return Bd.save('horas', JSON.stringify(this.dias));
       }
 
-      const diaFounded = dias[parseInt(diaAgendado.split('-')[0])];
+      console.log(dia);
+      console.log(horario);
+      
+      
+      const diaFounded = dias[parseInt(dia.split('-')[0])];
       const horaIndex = diaFounded.findIndex(hora => hora.hora === horario.split(' ')[0]);
       diaFounded[horaIndex].disponible = false;
   

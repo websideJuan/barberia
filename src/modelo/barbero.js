@@ -50,6 +50,7 @@ export class Barbero {
 
   setNotificaciones(notificacion) {
     this.notificaciones.push(notificacion);
+    BD.save('barbero', JSON.stringify(this));
   }
 
 }
