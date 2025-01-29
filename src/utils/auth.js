@@ -61,11 +61,9 @@ export class Auth {
         userNamr: userFounded.username,
         email: userFounded.email,
         role: userFounded.role,
-        clientes: unityCandE
+        clientes: unityCandE,
+        statePay: 'pendiente'
       }
-      
-      console.log(this.newUserActivated);
-
       
       this.userActive(this.newUserActivated);
       return true;
@@ -94,6 +92,14 @@ export class Auth {
       return DB.save('auth', 'true');
     } else {
       return DB.save('auth', 'false');
+    }
+  }
+
+  navegate() {
+
+    const routeActual = window.location.href.split('/').pop();
+    if (this.authenticated) {
+      return window.location.href = '/src/vista/admin/';
     }
   }
 

@@ -16,13 +16,13 @@ export class NavbarItem {
           <form class="login__form login__form--trabajador">
 
             <div class="login__form-group">
-              <label for="username">Username: *</label>
+              <label for="username">Usuario: *</label>
               <input type="text" id="username" name="username" required>
             </div>
 
             <div class="login__form-group">
 
-              <label for="password">Password: *</label>
+              <label for="password">Contraseña: *</label>
               <input type="password" id="password" name="password" required>
             </div>
 
@@ -101,7 +101,7 @@ export class NavbarItem {
       <div class="login__content">
         <div class="login__header">
           <h2 class="login__title">Iniciar sesion</h2>
-          <p>Ingresa tus datos para iniciar sesion</p>
+          <p>${this.renderUI.cliente.title}</p>
           <div class="login__navbar">
             <a href="#" class="login__btn">Cliente</a>
             <a href="#" class="login__btn active">Trabajador</a>
@@ -160,7 +160,7 @@ export class NavbarItem {
           return;
         } 
 
-        window.location.href = '/src/vista/admin/';
+        window.location.href = 'src/vista/admin/';
         
 
 

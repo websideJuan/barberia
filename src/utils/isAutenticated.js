@@ -9,7 +9,7 @@ class IsAuthenticated {
     const response = await this.auth.isAuthenticated();
     
     if (!response) {
-      window.location.href = '/barberia';
+      window.location.href = 'https://websidejuan.github.io/barberia/';
       return;
     } 
     

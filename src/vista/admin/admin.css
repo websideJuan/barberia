@@ -65,6 +65,18 @@ p {
   list-style: none;
   margin-top: 6rem;
   margin-bottom: auto;
+  gap: 1.5rem;
+}
+
+.nav-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  font-size: 1.3rem;
+  width: 100%;
+  height: 50px;
+  border-radius: 8px;
 }
 
 .nav .nav-icon {
@@ -74,8 +86,15 @@ p {
   color: white;
   text-decoration: none;
   font-size: 1.3rem;
-  padding: 1rem 0;
   border-radius: 6000px;
+}
+
+.nav-item.active {
+  background-color: #fff; 
+}
+
+.nav-item.active .nav-icon {
+  color: #333;
 }
 
 .nav .nav-item :nth-child(2) {
@@ -88,7 +107,7 @@ p {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px;
+  padding: 20px 2rem;
   color: black;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
@@ -97,9 +116,24 @@ p {
   display: flex;
   align-items: center;
   position: relative;
+  margin-left: auto;
+  margin-right: 1rem;
 }
 
-.header-user-image-dropdown {
+.header-user-notification {
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin-left: 1rem;
+}
+
+.header-user-notification i {
+  font-size: 1.5rem;
+  color: black;
+  cursor: pointer;
+}
+
+.dropdown {
   position: absolute;
   top: 100%;
   right: -10px;
@@ -152,13 +186,55 @@ p {
 
 .content {
   grid-area: content;
+  overflow-y: auto;
+
+}
+
+.content-dinamic {
   display: grid;
   grid-template-areas:
-  "area1"
-  "area2"
-  "area3"
-  "area4"
-  "area5";
+  "agendaEventos"
+  "taskList"
+  "tableClient";
+  gap: 3rem;
+
+}
+
+.card-shadow {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  border-radius: 8px;
+  padding: 2rem 1rem;
+  overflow: auto;
+}
+
+
+.agenda-eventos {
+  grid-area: agendaEventos;
+}
+
+.task-list {
+  grid-area: taskList;
+}
+
+.table-client {
+  grid-area: tableClient;
+}
+
+.table-client table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table-client th {
+  background-color: #333;
+  color: white;
+  padding: 1rem;
+}
+
+.table-client td {
+  padding: 1rem;
+  border-bottom: 1px solid #f2f2f2;
 }
 
 .agenda-eventos-cantidad-container {
@@ -181,11 +257,103 @@ p {
   text-align: center;
 }
 
-.card-shadow {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  transition: 0.3s;
-  /* height: 300px; */
-  margin-bottom: 2.5rem;
+
+.agenda-eventos__item {
+  display: grid;
+  grid-template-areas:
+  "icon name lastname edad"
+  "icon day schedule schedule";
+
+  gap: 0 1rem;
+  padding: 1rem;
   border-radius: 10px;
-  padding: 2rem;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin-bottom: 1rem;
+
+}
+
+.eventos__item--icon {
+  grid-area: icon;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.eventos__item--icon i.red {
+  color: red;
+}
+
+.eventos__item--icon i.green {
+  color: green;
+}
+
+.eventos__item--name {
+  grid-area: name;
+}
+
+.eventos__item--lastname {
+  grid-area: lastname;
+}
+
+.eventos__item--edad {
+  grid-area: edad;
+}
+
+.eventos__item--day {
+  grid-area: day;
+}
+
+.eventos__item--schedule {
+  grid-area: schedule;
+}
+
+@media screen and (min-width: 768px) {
+
+  .header {
+    padding: 20px 4rem;
+  }
+
+  .main-admin{
+    display: grid;
+    grid-template-areas:
+    "menu nav nav" 
+    "menu content content"
+    "menu content content"
+    "menu content content"
+    "menu content content";
+    ;
+    grid-template-rows: 1fr 5fr 5fr 5fr 1fr;
+    grid-template-columns: .5fr 3fr 3fr;
+    height: 100dvh;
+    align-content: space-between;
+  }
+
+  .content-dinamic {
+    grid-template-areas:
+    "agendaEventos taskList"
+    "tableClient tableClient";
+  }
+
+  .nav-item {
+    flex-direction: column;
+    gap: .5rem;
+    height: 70px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  .nav-item:hover {
+    background-color: #444;
+  }
+
+  .nav .nav-item :nth-child(2) {
+    display: block;
+    font-size: .9rem;
+    color: #fff;
+  }
+
+  .nav-item.active :nth-child(2) {
+    color: #333;
+  }
 }

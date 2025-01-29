@@ -71,12 +71,10 @@ input {
   border-radius: 100px;
   border: none;
   background-color: transparent;
-  color: white;
 }
 
 input::placeholder {
   font-weight: bold;
-  color: white;
 }
 
 input:focus {
@@ -100,9 +98,9 @@ textarea:focus {
 
 button {
   width: 100%;
-  color: white;
+  color: black;
   padding: 0.9rem 1.3rem;
-  border: 0.2rem solid white;
+  border: 0.2rem solid black;
   font-size: 1.2rem;
   text-decoration: none;
   letter-spacing: 5px;
@@ -148,8 +146,7 @@ button {
 
 .form_group label {
   position: absolute;
-  color: white;
-  background-color: lightgrey;
+  background-color: white;
   pointer-events: none;
   font-size: 1.1rem;
   left: 0;

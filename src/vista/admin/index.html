@@ -19,10 +19,10 @@
         </p>
       </div>
     
-      <div class="header-user-image">
+      <div class="header-user-image" data-dropdown='dropdown'>
         <img src="../../assets/usuarios/christopher-campbell-rDEOVtE7vOs-unsplash.jpg" width="30px" height="30px" alt="User image">
 
-        <div class="header-user-image-dropdown dropdown">
+        <div class="header-user-image-dropdown dropdown" >
           <ul class="dropdown-list">
             <li class="dropdown-list-item">
               <a href="#" class="dropdown-list-link">Perfil</a>
@@ -32,6 +32,19 @@
             </li>
             <li class="dropdown-list-item">
               <a href="#" class="dropdown-list-link">Cerrar sesión</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="header-user-notification" data-dropdown='dropdown'>
+        <div class="header-user-notification-icon">
+          <i class="fas fa-bell"></i>
+        </div>
+        <div class="dropdown">
+          <ul class="dropdown-list">
+            <li class="dropdown-list-item">
+              <a href="#" class="dropdown-list-link">Notificación 1</a>
             </li>
           </ul>
         </div>
@@ -47,7 +60,7 @@
         </span>
       </div>
       <ul class="nav-menu">
-        <li class="nav-item">
+        <li class="nav-item active">
           <span class="nav-icon">
             <i class="fas fa-home"></i>
           </span>
@@ -102,7 +115,8 @@
                   <tr>
                     <th>Nombre</th>
                     <th>Correo</th>
-                    <th>Acciones</th>
+                    <th>Edad</th>
+                    <th>Correo</th>
                   </tr>
                 </thead>
                 <tbody id="clients">
