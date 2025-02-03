@@ -4,76 +4,160 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <link rel="stylesheet" href="../../../main.css">
+  <link rel="stylesheet" href="../../../normalize.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="./agendar.css">
 </head>
 <body>
   <header class="container_navbar"></header>
-  <div class="container">
-    <div id="root">
   
-      <h2 style="margin-bottom: 2rem;">
-        Reserva tu hora
-      </h2>
-      <div class="info">
-        <div class="info_hader">
-          <h5>Atencion <i class="fa-solid fa-exclamation"></i></h5>
-        </div>
-        <div class="info_body">
-          <p>
-            Para reservar una hora de atencion, es necesario abonar el 50% de total. Para cancelar una hora, se debe hacer con 4 horas de anticipacion.
-          </p>
+  <div id="root">
+    <nav>
+      <div class="container">
+        <div class="navbar">
+          <div class="navbar__logo">
+            <p>Agendar</p>
+          </div>
+
+          <div class="navbar__user">
+            <a href="#" class="user-login">Iniciar secion</a>
+          </div>
         </div>
       </div>
+    </nav>
+
+    <main>
+      <div class="container">
+
+        <div class="calendario__banner">
+          <div class="calendario__banner__header">
+            <p>
+              <i class="fa-solid fa-chevron-left"></i>
+            </p>
+          </div>
+          <div class="calendario__banner__body">
+            <p>Servicos </p>
+          </div>
+        </div>
+
+        <div class="calendario__servicios">
+          <div class="calendario__servicios__header">
+            <p>
+              Seleccione un servicio
+            </p>
+          </div>
+
+          <div class="calendario__servicios__body">
+            <div class="servicio">
+              <h3>
+                Corte de pelo
+              </h3>
+              <p class="cortePelo--precio">Precio: <span>15000</span></p>
+              <p class="cortePelo--message">
+                Corte de pelo con maquina y tijera con un estilo moderno,
+                incluye lavado y secado.
+              </p>
+              <p class="cortePelo--time">
+                40 minutos
+              </p>
+              <button class="cortePelo--btn">Agendar Servicio</button>
+            </div>
+            <div class="servicio">
+              <h3>
+                Corte de barba
+              </h3>
+              <p>Precio: <span>25000</span></p>
+              <p class="cortePelo--message">
+                Corte de barba con maquina y tijera con un estilo moderno,
+                incluye tratamiento facial.
+              </p>
+              <p class="cortePelo--time">
+                30 minutos
+              </p>
+              <button class="cortePelo--btn">Agendar Servicio</button>
+            </div>
+            <div class="servicio">
+              <h3>
+                Tratamiento capilar
+              </h3>
+              <p>Precio: <span>45000</span></p>
+              <p class="cortePelo--message">
+                Cuidado capilar con productos de alta calidad,
+                para un cabello sano y brillante. 
+              </p>
+              <p class="cortePelo--time">
+                1 hora
+              </p>
+              <button class="cortePelo--btn">Agendar Servicio</button>
+            </div>
+            <div class="servicio">
+              <h3>
+                Tratamiento facial
+              </h3>              
+              <p>Precio: <span>15000</span></p>
+              <p class="cortePelo--message">
+                Tratamiento facial con productos de alta calidad,
+                limpieza facial, exfoliacion y mascarilla.
+              </p>
+              <p class="cortePelo--time">
+                30 minutos
+              </p>
+              <button class="cortePelo--btn">Agendar Servicio</button>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="calendario__container inactive">
+          <div class="pannel-calendario">
+            <p>Mes:</p>
+          </div>
+          
+          <div class="calendario__panel">
+            <div class="calendario__panel__header">
+              <button id="prev" class="calendario__panel__header--btn prev"><i class="fa-solid fa-chevron-left"></i></button>
+              <button id="next" class="calendario__panel__header--btn next"><i class="fa-solid fa-chevron-right"></i></button>
+            </div>
   
-      <div class="pannel-calendario">
-        <p>Mes: <span>${mes}</span> </p>
+            <div class="calendario"></div>
+  
+            <div class="calendario__panel__body">
+              <div class="calendario__panel__body__hora">
+                <p>Horas disponibles</p>
+  
+                <div class="horas" id="horas"></div>
+              </div> 
+  
+            </div>
+          </div>
+  
+
+        </div>
+
+        <div class="calendario__footer ">
+          
+          <div class="calendario__footer__header inactive">
+            <div class="calendario__footer__header__service">
+              <h4 class="footer__header__service--title">
+                titulo
+              </h4>
+              <span class="footer__header__service--service">Precio</span>
+              <p class="footer__header__service--date">
+                <span class="day">2</span> de febrero de <span class="year">2025</span>
+                <span>--:--</span> hrs
+              </p>
+            </div>  
+          </div>
+
+    
+        </div>
+
+        
       </div>
-  
-      <div class="calendario"></div>
-  
-      <form class="form">
-        <div class="form_group">
-          <input type="text" id="name" placeholder=" ">
-          <label for="name">Ingrese nombre:</label>
-        </div>
-        <div class="form_group">
-          <input type="text" id="apellido" placeholder=" ">
-          <label for="apellido">Ingrese apellido:</label>
-        </div>
-  
-        <div class="form_group">
-          <input type="text" id="rut" placeholder=" ">
-          <label for="rut">Ingrese su RUT (sin puntos ni guion):</label>
-        </div>
-  
-        <div class="form_group">
-          <input type="text" id="edad" placeholder=" ">
-          <label for="edad">Ingrese la edad:</label>
-        </div>
-  
-        <div class="form_group">
-          <input type="text" id="fecha" name="calendario" placeholder=" ">
-          <label for="fecha">Ingrese el dia y la hora:</label>
-        </div>
-  
-        <div class="form_group">
-          <input type="email" id="email" name="email" placeholder=" ">
-          <label for="fecha">Ingrese tu correco de contacto:</label>
-        </div>
-  
-        <select name="corte" id="corte">
-          <option value="1">Atencion Basica</option>
-          <option value="2">Atencion Premiun</option>
-          <option value="3">Atencion V.I.P</option>
-        </select>
-  
-  
-        <button type="submit">Submit</button>
-      </form>
-    </div>
+
+    </main>
   </div>
+
 </body>
 <script type="module" src="./agendar.js"></script>
 </html>

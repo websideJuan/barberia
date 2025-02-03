@@ -38,7 +38,7 @@ export class NavbarItem {
               <label for="IDevento"><h4>Ingresa tu EventID.</h4> <span>codigo resibido al agendar la cita.</span></label>
               <input type="text" id="IDevento" name="IDevento" required>
             </div>
-            <button type="submit" class="login__form-btn">Bucar </button>
+            <button type="submit" class="login__form-btn">Buscar</button>
           </form>
         `,
 
@@ -101,7 +101,7 @@ export class NavbarItem {
       <div class="login__content">
         <div class="login__header">
           <h2 class="login__title">Iniciar sesion</h2>
-          <p>${this.renderUI.cliente.title}</p>
+          <p class="login__text">${this.renderUI.cliente.title}</p>
           <div class="login__navbar">
             <a href="#" class="login__btn">Cliente</a>
             <a href="#" class="login__btn active">Trabajador</a>
@@ -115,6 +115,7 @@ export class NavbarItem {
     document.body.appendChild(login);
     const loginBtns = document.querySelectorAll('.login__btn');
     const formContainer = document.querySelector('.login__form-container');
+    const loginText = document.querySelector('.login__text')
     const form = document.querySelector('.login__form');
 
     loginBtns.forEach(btn => btn.addEventListener('click', (e) => {
@@ -125,6 +126,7 @@ export class NavbarItem {
       const answer = e.target.textContent.toLowerCase();
 
       formContainer.innerHTML = this.renderUI[answer].form
+      loginText.textContent = this.renderUI[answer].title;
 
       const form = document.querySelector(`.login__form.login__form--${answer}`);
       this.handlerForm(form);

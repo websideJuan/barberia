@@ -34,8 +34,8 @@ h3,
 }
 
 .header-titles h2 {
-  font-size: clamp(1.5rem, 5vw, 2rem);
-
+  font-size: clamp(1rem, 3vw, 1.2rem);
+  font-weight: 300;
 }
 
 .header-titles h2::after {
@@ -81,72 +81,15 @@ input:focus {
   outline: none;
 }
 
-select {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  box-sizing: border-box;
-  border-radius: 100px;
-}
-
-textarea,
-textarea:focus {
-  resize: none;
-  border: none;
-  outline: none;
-}
-
-button {
-  width: 100%;
-  color: black;
-  padding: 0.9rem 1.3rem;
-  border: 0.2rem solid black;
-  font-size: 1.2rem;
-  text-decoration: none;
-  letter-spacing: 5px;
-  cursor: pointer;
-  background-color: transparent;
-}
-
-.calendario {
-  width: 90%;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: repeat(6, minmax(0, 60px));
-  gap: 2px;
-  margin-bottom: 1rem;
-}
-
-.horario {
-  position: fixed;
-  inset: 0;
-  background: transparent;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #fff;
-  padding: 0 1rem;
-}
-
-.diasCalendario {
-  color: lightgray;
-  background-color: white;
-  cursor: pointer;
-  height: 100%;
-  padding: 0.3rem;
-}
-
 .form_group {
   position: relative;
-  border-bottom: 1px solid white;
+  border-bottom: 1px solid black;
 
   margin-bottom: 1rem;
 }
 
 .form_group label {
   position: absolute;
-  background-color: white;
   pointer-events: none;
   font-size: 1.1rem;
   left: 0;
@@ -163,20 +106,23 @@ button {
   font-size: 0.8rem;
 }
 
-.diasCalendario.inActive {
-  pointer-events: none;
-  opacity: 0.5;
+
+select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border-radius: 100px;
 }
 
-.form.active {
-  display: block;
+textarea,
+textarea:focus {
+  resize: none;
+  border: none;
+  outline: none;
 }
 
-.inactive {
-  display: none;
-}
-
-.popUp {
+/* .popUp {
   position: fixed;
   inset: 0;
   background: transparent;
@@ -225,7 +171,7 @@ button {
 
 .popUp-btns :nth-child(2) {
   background-color: orange;
-}
+} */
 
 .info {
   width: 90%;
@@ -255,12 +201,17 @@ button {
   width: 100%;
 }
 
-.banner-img img {
-  display: block;
+.banner-img {
+  position: relative;
   width: 100%;
-  height: 100dvh;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.banner-img img {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  filter: contrast(80%);
 }
 
 .banner-content {
@@ -296,24 +247,7 @@ button {
   cursor: pointer;
 }
 
-.pannel-calendario {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 1rem;
-  margin-left: 1rem;
-  font-size: 1.3rem;
-}
 
-.dia-inactive {
-  display: none;
-  pointer-events: none;
-}
-
-.dia-active {
-  display: block;
-  pointer-events: all;
-}
 
 .servicios {
   max-width: 1200px;
@@ -340,6 +274,7 @@ button {
   align-items: center;
   text-align: center;
   gap: 0.5rem;
+  width: 85%;
 }
 
 .servicio-content h4 {
@@ -353,8 +288,8 @@ button {
 }
 
 .servicio img {
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   object-fit: cover;
 }
 
@@ -413,7 +348,7 @@ button {
   align-items: center;
   padding: 1rem;
   padding-top: 2.5rem;
-  color: rgba(0, 0, 0, 0.2);
+  color: rgb(0, 0, 0);
   position: relative;
   font-size: 1.1rem;
 }
@@ -423,7 +358,8 @@ button {
   content: "";
   width: 50%;
   height: 1px;
-  background-color: lightgrey;
+  background-color: black;
+  width: 80%;
   position: absolute;
   top: 0;
 }
@@ -437,13 +373,13 @@ button {
   left: 50%;
   transform: translateX(-50%);
   z-index: 1;
-  color: lightgrey;
+  color: black;
   padding: 0 1rem;
   font-weight: 300;
 }
 
 .contacto-form {
-  background-color: lightgrey;
+  background-color: #f9f9f7;
   padding: 4rem 2rem;
 }
 
@@ -482,8 +418,8 @@ button {
 
 .form_group label {
   font-size: clamp(0.8rem, 5vw, 1rem);
-  background-color: lightgray;
-  color: white;
+  background-color: transparent;
+  color: black;
 }
 
 .contacto-form .btn {

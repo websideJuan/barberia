@@ -12,11 +12,30 @@
 <body>
   <main class="main-admin">
     <header class="header">
+      <div class="header-user-submenu">
+        <div class="header-user-submenu-icon">
+          <i class="fas fa-bars"></i>
+        </div>
+      </div>
+
       <div class="header-user">
         <h4>Welcome Juan</h4>
         <p class="header-user-info">
           <span>User admin </span>
         </p>
+      </div>
+
+      <div class="header-user-notification" data-dropdown='dropdown'>
+        <div class="header-user-notification-icon">
+          <i class="fas fa-bell"></i>
+        </div>
+        <div class="dropdown">
+          <ul class="dropdown-list">
+            <li class="dropdown-list-item">
+              <a href="#" class="dropdown-list-link">Notificación 1</a>
+            </li>
+          </ul>
+        </div>
       </div>
     
       <div class="header-user-image" data-dropdown='dropdown'>
@@ -37,50 +56,39 @@
         </div>
       </div>
 
-      <div class="header-user-notification" data-dropdown='dropdown'>
-        <div class="header-user-notification-icon">
-          <i class="fas fa-bell"></i>
-        </div>
-        <div class="dropdown">
-          <ul class="dropdown-list">
-            <li class="dropdown-list-item">
-              <a href="#" class="dropdown-list-link">Notificación 1</a>
-            </li>
-          </ul>
-        </div>
-      </div>
     </header>
 
     <nav class="nav">
-
-      <div class="nav-logo">
-        <span>
-          <i class="fa-solid fa-landmark"></i>
-          <!-- <img src="../../assets/logo.png" alt="Logo" width="30px" height="30px"> -->
-        </span>
-      </div>
-      <ul class="nav-menu">
-        <li class="nav-item active">
-          <span class="nav-icon">
-            <i class="fas fa-home"></i>
+      <div class="nav-content">
+        <div class="nav-logo">
+          <span>
+            <i class="fa-solid fa-landmark"></i>
+            <!-- <img src="../../assets/logo.png" alt="Logo" width="30px" height="30px"> -->
           </span>
-          <span class="nav-link">
-            Dashboard
-          </span>
-        </li>
-
-        <li class="nav-item">
-          <span class="nav-icon">
-            <i class="fas fa-calendar-alt"></i>
-          </span>
-          <span class="nav-link">
-            Agendar
-          </span>
-        </li>
-      </ul>
-
-      <div class="nav-user-logout">
-        <button id="logout">Logout</button>
+        </div>
+        <ul class="nav-menu">
+          <li class="nav-item active">
+            <span class="nav-icon">
+              <i class="fas fa-home"></i>
+            </span>
+            <span class="nav-link">
+              Dashboard
+            </span>
+          </li>
+  
+          <li class="nav-item">
+            <span class="nav-icon">
+              <i class="fas fa-calendar-alt"></i>
+            </span>
+            <span class="nav-link">
+              Agendar
+            </span>
+          </li>
+        </ul>
+  
+        <div class="nav-user-logout">
+          <button id="logout">Logout</button>
+        </div>
       </div>
     </nav>
 
@@ -106,6 +114,15 @@
                   <p>Reanudar la busqueda de barberos</p>
                 </li>
               </ul>
+            </div>
+
+            <div class="stadistics card-shadow">
+              <h2>Estadisticas</h2>
+              <p>Estadisticas de la semana</p>
+
+              <div class="chart">
+                <canvas id="myChart" width="300px"></canvas>
+              </div>
             </div>
 
             <div class="table-client card-shadow">

@@ -16,7 +16,7 @@ export class GestorPeluqueria {
         const [dia, horario] = diaAgendado.split('/');
         const cliente = new Cliente(nombre, apellido, edad, diaAgendado);
         const pago = new Pagos(cliente.ID, 0, new Date().toISOString().split('T')[0], corteId);
-        const evento = new Calendario(cliente.ID, 0, dia, horario);
+        new Calendario(cliente.ID, 0, dia, horario);
 
         this.evento.agregar({ clienteID: cliente.ID, barberoID: 0, dia: dia, horario: horario });
       
@@ -24,20 +24,30 @@ export class GestorPeluqueria {
         this.clientes = await BD.get('clientes') || [];
         this.eventos = await BD.get('eventos')  || [];  
         
-        this.clientes.push({
-          id: cliente.ID,
-          nombre: nombre,
-          apellido: apellido,
-          edad: edad,
-          diaAgendado: diaAgendado,
-          email
-        });
+        const finded = this.clientes.findIndex(cliente => cliente.email === email);
+        
+        if (finded !== -1) {
+          this.clientes[finded] = {
+            ...this.clientes[finded],
+            count: this.clientes[finded].count + 1,
+          }
+        }else {
+          this.clientes.push({
+            id: cliente.ID,
+            nombre: nombre,
+            apellido: apellido,
+            edad: edad,
+            diaAgendado: diaAgendado,
+            email,
+          });
+        }
     
         this.eventos.push({
           clienteID: cliente.ID,
           barberoID: 0,
           dia: dia,
-          horario: horario
+          horario: horario,
+          count: 1
         });
 
         BD.save('eventos', JSON.stringify(this.eventos));
@@ -48,19 +58,7 @@ export class GestorPeluqueria {
         console.error(error);
     }}
 
-    // async agregarCliente(cliente) {
-    //   this.clientes = await BD.get('clientes');
-    //   this.clientes.push(cliente);
-
-    //   return this.clientes;
-    // }
-
-    // async agregarEvento(evento) {
-    //   this.eventos = await BD.get('eventos');
-    //   this.eventos.push(evento);
-
-    //   return this.eventos;
-    // }
+   
 
     
 }

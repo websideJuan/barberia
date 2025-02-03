@@ -9,6 +9,7 @@ export class Cliente {
     this.diaAgendado = diaAgendado;
     this.email = email;
     this.corteId = corteId;
+    this.count = 1;
     this.crearClienteID();
   }
 

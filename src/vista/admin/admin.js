@@ -11,6 +11,7 @@ class Admin {
   render() {
     const btnlogout = document.querySelector("#logout");
     const btnsDropDown = document.querySelectorAll("[data-dropdown='dropdown']");
+    const btnMenu = document.querySelector(".header-user-submenu-icon");
 
     setInterval(() => {
       const redirecDOM = async () => {
@@ -33,9 +34,67 @@ class Admin {
       });
     });
 
+
+    btnMenu.addEventListener("click", () => {
+      btnMenu.classList.toggle("active");
+      btnMenu.innerHTML = btnMenu.classList.contains('active') ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+      this.showMenu();
+    });
+
     this.listCortesRender();
     this.listClientesRender();
+    this.rednderStadistics();
   }
+
+  rednderStadistics () {
+    const chartContex = document.querySelector('#myChart')
+
+    const colors = ['#FF6633', '#00B3E6', '#E6B333', '#3366E6', '#999966']
+
+    const stadistics = {
+      labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo'],
+      datasets: [{
+        label: 'Cortes de pelo',
+        data: [65, 59, 80, 81, 56] ,
+        backgroundColor: colors[0]
+      }, {
+        label: 'Cortes de barba',
+        data: [28, 48, 40, 19, 86],
+        backgroundColor: colors[1]
+      }, {
+        label: 'Corte de cabello y barba',
+        data: [15, 34, 54, 10, 67],
+        backgroundColor: colors[2]
+      }, {
+        label: 'Afeitado',
+        data: [10, 12, 34, 9, 45],
+        backgroundColor: colors[3]
+      }, {
+        label: 'Corte de cabello y barba',
+        data: [20, 34, 64, 89, 34],
+        backgroundColor: colors[4]
+      }]
+    }
+
+    const ctx = chartContex.getContext('2d');
+
+    stadistics.datasets.forEach((dataset, i) => {
+      ctx.fillStyle = dataset.backgroundColor
+      
+      dataset.data.forEach((data, j) => {
+        ctx.fillRect((j * 45),145 - dataset.data[j], 30, dataset.data[j])
+
+      })
+    })
+
+
+
+    chartContex.addEventListener('contextrestored', (e) => {
+      console.log(e)
+    })
+  }
+
+
 
   async listCortesRender() {
     const CONTENT_EVENT = document.querySelector(".agenda-eventos");
@@ -55,17 +114,12 @@ class Admin {
                     ? '<i class="fas fa-exclamation-circle red"></i>'
                     : '<i class="fas fa-check-circle green"></i>'
                 }
-                <span class="eventos__item--icon--state" style="font-size: .7rem;">${
-                  userActive.statePay
-                }</span>
               </div>
-              <p class="eventos__item--name">${cliente.nombre.split(" ")[0]}</p>
+              <p class="eventos__item--name">${cliente.nombre}</p>
               <p class="eventos__item--lastname">${
-                cliente.apellido.split(" ")[0]
+                cliente.apellido
               }</p>
               <p class="eventos__item--edad">${cliente.edad}</p>
-              <p class="eventos__item--day">${evento.dia}</p>
-              <p class="eventos__item--schedule">${evento.horario}</p>
             </div>
             `;
       });
@@ -87,6 +141,11 @@ class Admin {
         </tr>
       `;
     });
+  }
+
+  showMenu() {
+    const menu = document.querySelector(".main-admin");
+    menu.classList.toggle("active");
   }
 }
 
